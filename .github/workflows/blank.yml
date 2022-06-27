@@ -5,11 +5,11 @@ on:
 
 env:
   HOST: ebsco.leanix.net
-  LEANIX_MANIFEST_PATH: /lx-manifest.yml
+  LEANIX_MANIFEST_PATH: ../../lx-manifest.yml
   DEPENDENCY_MANAGER: NPM
   STAGE: test
   VERSION: 2.2.0
-  ALLOW_FAILURE: true
+  #ALLOW_FAILURE: true
 
 
 jobs:
@@ -23,9 +23,9 @@ jobs:
         id: LIXVSM
         with:
           host: ${{ env.HOST }}
-          api-token: Fj2D2QCtHcQFh8PFY2LL9TUrVVv96BYBPN9FYrq8
+          api-token: ${{ secrets.LEANIX_API_TOKEN }}
           manifest-path: ${{ env.LEANIX_MANIFEST_PATH }}
           dependency-manager: ${{ env.DEPENDENCY_MANAGER }}
           stage: ${{ env.STAGE }}
           version: ${{ env.VERSION }}
-          allow-failure: ${{ env.ALLOW_FAILURE }}
+          #allow-failure: ${{ env.ALLOW_FAILURE }}
